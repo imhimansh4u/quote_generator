@@ -1,0 +1,14 @@
+# Node modules (auto-installed dependencies)
+node_modules/
+
+# Environment variables (sensitive)
+.env
+
+# Tailwind / CSS build outputs (can be generated)
+src/output.css
+
+# OS or IDE-specific
+.DS_Store
+*.log
+*.lock
+.vscode/
