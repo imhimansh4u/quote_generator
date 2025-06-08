@@ -21,7 +21,6 @@
       position: relative;
       padding-left: 36px;
     }
-
     .savedquotesare::before {
       content: "💬";
       position: absolute;
@@ -29,83 +28,53 @@
       top: 12px;
       font-size: 18px;
     }
-    .savedquotesare button{
+    .savedquotesare button {
       float: right;
     }
-    .hidden{
+    .hidden {
       display: none;
     }
   </style>
-  <body
-    class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen"
-  >
-    <div
-      class="bg-gray-800 border border-gray-700 rounded-md w-[500px] min-h-[500px] shadow-lg"
-    >
-      <h1
-        class="text-center text-2xl font-semibold py-4 border-b border-gray-700"
-      >
-        Motivational Quotes
-      </h1>
+  <body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen">
 
-      <div
-        id="Quotes-box"
-        class="flex flex-col bg-gray-700 mx-6 my-4 p-6 rounded-lg min-h-[200px]"
-      >
-        <div class="flex-1 flex flex-col justify-center">
-          <p
-            id="quoteContent"
-            class="text-center text-lg italic leading-relaxed"
-          >
-            “Your next quote appears here...”
-          </p>
-          <div id="author-name" class="mt-4 text-right text-sm text-gray-300">
-            — Author Name
+    <!-- Added responsive container -->
+    <div class="container mx-auto px-4 max-w-2xl">
+      <div class="bg-gray-800 border border-gray-700 rounded-md w-full shadow-lg">
+        <h1 class="text-center text-2xl font-semibold py-4 border-b border-gray-700">
+          Motivational Quotes
+        </h1>
+
+        <div id="Quotes-box" class="flex flex-col md:flex-row bg-gray-700 mx-2 md:mx-6 my-4 p-4 md:p-6 rounded-lg min-h-[200px]">
+          <div class="flex-1 flex flex-col justify-center p-2 md:p-4">
+            <p id="quoteContent" class="text-center text-lg italic leading-relaxed">
+              “Your next quote appears here...”
+            </p>
+            <div id="author-name" class="mt-4 text-right text-sm text-gray-300">
+              — Author Name
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center sm:space-x-4 space-y-4 sm:space-y-0 mt-4 md:mt-auto p-2 md:p-0">
+            <button id="newQuoteBtn" class="w-full sm:w-auto relative inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-lg transition transform duration-150 hover:bg-blue-500 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500/50 active:bg-blue-700 active:scale-95">
+              <span class="relative z-10">New Quote</span>
+              <span class="absolute inset-0 rounded-lg before:absolute before:inset-0 before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.4)_50%,transparent_75%)] before:bg-[length:200%_200%] before:bg-[position:200%_0] before:transition-[background-position] before:duration-1000 hover:before:bg-[position:-50%_0]"></span>
+            </button>
+
+            <button id="SaveQuoteBtn" type="button" class="hidden sm:inline-block ml-auto text-gray-400 hover:text-red-500 focus:outline-none transition-colors duration-200">
+              <svg id="heartIcon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 stroke-current fill-none transition-colors duration-200" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c.378-1.14 1.77-1.14
+           2.148 0a4.574 4.574 0 015.175 6.312l-7.614
+           13.04a.75.75 0 01-1.284 0L6.175 10.148a4.574
+           4.574 0 015.175-6.312z" />
+              </svg>
+            </button>
           </div>
         </div>
 
-        <div class="flex items-center space-x-4 mt-auto">
-          <button
-            id="newQuoteBtn"
-            class="relative inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-lg transition transform duration-150 hover:bg-blue-500 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500/50 active:bg-blue-700 active:scale-95"
-          >
-            <span class="relative z-10">New Quote</span>
-            <span
-              class="absolute inset-0 rounded-lg before:absolute before:inset-0 before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.4)_50%,transparent_75%)] before:bg-[length:200%_200%] before:bg-[position:200%_0] before:transition-[background-position] before:duration-1000 hover:before:bg-[position:-50%_0]"
-            ></span>
-          </button>
-
-          <button
-            id="SaveQuoteBtn"
-            type="button"
-            class="hidden ml-auto text-gray-400 hover:text-red-500 focus:outline-none transition-colors duration-200"
-          >
-            <svg
-              id="heartIcon"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 stroke-current fill-none transition-colors duration-200"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M11.35 3.836c.378-1.14 1.77-1.14 
-           2.148 0a4.574 4.574 0 015.175 6.312l-7.614
-           13.04a.75.75 0 01-1.284 0L6.175 10.148a4.574
-           4.574 0 015.175-6.312z"
-              />
-            </svg>
-          </button>
+        <div class="px-4 md:px-6 pb-6">
+          <h3 class="text-lg font-semibold mb-2">Saved Quotes:</h3>
+          <ul id="savedQuoteList" class="space-y-2 ml-4 md:ml-5 text-gray-300"></ul>
         </div>
-      </div>
-
-      <div class="px-6 pb-6">
-        <h3 class="text-lg font-semibold mb-2">Saved Quotes:</h3>
-        <ul
-          id="savedQuoteList"
-          class="space-y-2 list-disc ml-5 text-gray-300"
-        ></ul>
       </div>
     </div>
 
